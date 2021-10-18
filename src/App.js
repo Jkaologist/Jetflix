@@ -8,8 +8,8 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      <Banner />
       <Navbar />
+      <Banner />
       <Row
         title="Jetflix Originals"
         fetchURL={requests.fetchNetflixOriginals}
