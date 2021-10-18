@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
+import "./Row.css";
+
+const base_url = "https://image.tmdb.org/t/p/original/";
 
 function Row({ title, fetchURL }) {
   const [movies, setMovies] = useState([]);
 
-  // A snippet of code which runs based on a specific condition/variable
   useEffect(() => {
-    //make an asynchronous request to load the movies
     async function fetchData() {
-      // await the promise
       const request = await axios.get(fetchURL);
-      console.log(request);
+      setMovies(request.data.results);
+      return request;
     }
     fetchData();
-  }, []);
+  }, [fetchURL]);
 
   return (
-    <div className="Row">
+    <div className="row">
       <h2>{title}</h2>
-      {/* container -> posters */}
+      <div className="row_posters">
+        {movies.map((movie) => (
+          <img
+            className="row_poster"
+            src={`${base_url}${movie.poster_path}`}
+            alt={movie.name}
+          />
+        ))}
+      </div>
     </div>
   );
 }
