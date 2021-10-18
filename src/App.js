@@ -8,9 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="app">
-      {/* Banner */}
       <Banner />
-      {/* Navbar */}
       <Navbar />
       <Row
         title="Jetflix Originals"
