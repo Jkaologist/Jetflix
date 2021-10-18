@@ -1,22 +1,28 @@
 import React from "react";
 import Row from "./Row";
 import requests from "./requests";
+import Navbar from "./Navbar";
+import Banner from "./Banner";
 
 function App() {
   return (
     <div className="App">
-      <h1>JETFLIX</h1>
+      {/* Banner */}
+      <Banner />
+      {/* Navbar */}
+      <Navbar />
       <Row
         title="Jetflix Originals"
         fetchURL={requests.fetchNetflixOriginals}
+        isLargeRow
       />
       <Row title="Trending Now" fetchURL={requests.fetchTrending} />
       <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
-      <Row title="Horror" fetchURL={requests.fetchHorrorMovies} />
-      <Row title="Comedy" fetchURL={requests.fetchComedyMovies} />
+      <Row title="Action Movies" fetchURL={requests.fetchActionMovies} />
+      <Row title="Comedy Movies" fetchURL={requests.fetchComedyMovies} />
+      <Row title="Horror Movies" fetchURL={requests.fetchHorrorMovies} />
+      <Row title="Romance Movies" fetchURL={requests.fetchRomanceMovies} />
       <Row title="Documentaries" fetchURL={requests.fetchDocumentaries} />
-      <Row title="Action" fetchURL={requests.fetchActionMovies} />
-      <Row title="Romance" fetchURL={requests.fetchRomanceMovies} />
     </div>
   );
 }
